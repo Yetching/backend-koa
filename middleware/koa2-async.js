@@ -1,7 +1,8 @@
 function log(ctx) {
   console.log('------');
   console.log('async-middleware');
-  console.log(ctx.method, ctx.header.host + ctx.url);
+  console.log(ctx);
+  console.log(ctx.request.method, ctx.request.header.host + ctx.request.url);
 }
 
 module.exports = function () {

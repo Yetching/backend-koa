@@ -9,14 +9,17 @@ const generatorLogger = require('./middleware/koa1-generator');
 
 // koa2使用async中间件
 const asyncLogger = require('./middleware/koa2-async');
+const route = require('./middleware/route');
 
 app.use(asyncLogger());
 
 app.use(convert(generatorLogger()));
 
-app.use(async (ctx) => {
-  ctx.body = 'hello koa2';
-});
+app.use(route());
+
+// app.use(async (ctx) => {
+//   ctx.body = 'hello koa2, nodemon';
+// });
 
 app.listen(3000);
 
